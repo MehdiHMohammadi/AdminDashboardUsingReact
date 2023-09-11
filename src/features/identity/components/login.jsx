@@ -1,7 +1,13 @@
 import logo from "@assets/images/logo.svg";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { Link, redirect, useNavigation, useRouteError, useSubmit } from "react-router-dom";
+import {
+  Link,
+  redirect,
+  useNavigation,
+  useRouteError,
+  useSubmit,
+} from "react-router-dom";
 import { httpService } from "@core/http-service";
 const Login = () => {
   const { t } = useTranslation();
@@ -25,7 +31,12 @@ const Login = () => {
   return (
     <>
       <div className="text-center mt-4">
-        <img src={logo} style={{ height: "100px" }} />
+        <img
+          src={logo}
+          className="mb-4"
+          style={{ height: "40px" }}
+          alt="Logo App"
+        />
         <h1 className="h2">{t("login.title")}</h1>
         <p className="lead">{t("login.introMessage")}</p>
         <p className="lead">
@@ -113,7 +124,7 @@ export async function loginAction({ request }) {
   const response = await httpService.post("/Users/login", data);
   if (response.status === 200) {
     localStorage.setItem("token", response?.data.token);
-    return redirect('/');
+    return redirect("/");
   }
 }
 

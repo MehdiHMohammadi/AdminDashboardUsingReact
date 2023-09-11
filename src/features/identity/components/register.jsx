@@ -46,7 +46,12 @@ const Register = () => {
   return (
     <>
       <div className="text-center mt-4">
-        <img src={logo} style={{ height: "100px" }} />
+        <img
+          src={logo}
+          className="mb-4"
+          style={{ height: "40px" }}
+          alt="Logo App"
+        />
         <h1 className="h2">{t("register.title")}</h1>
         <p className="lead">{t("register.introMessage")}</p>
         <p className="lead">
